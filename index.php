@@ -27,8 +27,10 @@
 </head>
 <body>
     <div class = "centralText">
+    <h1>My Project header1</h1>
     <img src="link" alt="An image">
     <p class ="username">@Name</p>
+    <h2>My Project header2</h2>
     <p>Some text </p>
     </div>
     
