@@ -17,11 +17,11 @@ The introduction summarizes the purpose and function of the project, and should 
 ## Requirements (required)
 
 This module requires the following modules:
-- [Bad judgement](https://www.drupal.org/project/bad_judgement)
+- 
 
 OR
 
-This module requires no modules outside of Drupal core.
+This module requires no modules outside of 
 
 
 ## Recommended modules (optional)
