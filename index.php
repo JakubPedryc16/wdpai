@@ -24,7 +24,7 @@
 <body>
     <img src="link" alt="An image">
     <p class ="username">@Name</p>
-    <p>I love drinking </p>
+    <p>Some text </p>
 </body>
 </html>
 
