@@ -12,19 +12,26 @@
             img {
                 width: 100px;
                 border-radius: 50px;
-                float: left;
+                <!--float: left;-->
                 margin-right: 10px;
                 object-fit: cover;
             }
             .username {
                 font-weight: bold;
+                text-align: center;
+            }
+            div.centralText {
+                text-align: center;
             }
         </style>
 </head>
 <body>
+    <div class = "centralText">
     <img src="link" alt="An image">
     <p class ="username">@Name</p>
     <p>Some text </p>
+    </div>
+    
 </body>
 </html>
 
