@@ -22,8 +22,8 @@
         </style>
 </head>
 <body>
-    <img src="https://sklep-ballantines.pl/3979-large_default/rum-la-progresiva-de-vigia.jpg" alt="alco image">
-    <p class ="username">@Jojo</p>
+    <img src="link" alt="An image">
+    <p class ="username">@Name</p>
     <p>I love drinking </p>
 </body>
 </html>
