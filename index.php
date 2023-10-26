@@ -1,29 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML, CSS">
     <meta name="description" content="Information about my website">
-    <title>Document</title>
-
+    <link rel="stylesheet" type="text/css" href="/Public/css/style.css?v=3"/>
     <title>My web page</title>
-        <style>
-            img {
-                width: 100px;
-                border-radius: 50px;
-                <!--float: left;-->
-                margin-right: 10px;
-                object-fit: cover;
-            }
-            .username {
-                font-weight: bold;
-                text-align: center;
-            }
-            div.centralText {
-                text-align: center;
-            }
-        </style>
+
 </head>
 <body>
     <div class = "centralText">
@@ -40,3 +25,4 @@
 <?php
 
 echo 'Hi there 👋';
+?>

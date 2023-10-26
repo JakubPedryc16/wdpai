@@ -8,6 +8,7 @@ img {
     font-weight: bold;
     text-align: center;
 }
-div.centralText {
+.centralText {
     text-align: center;
 }
+*{background-color: black;}
