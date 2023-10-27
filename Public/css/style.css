@@ -32,38 +32,78 @@ form {
 }
 
 input {
-    border-radius: 20px;
+    border-radius: 30px;
     background: rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
      inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-    width: 50%;
-    border: none;
-    color: white;
-    margin: 1em;
-    line-height: 2.5em;
-
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
-    font-size: 30px;
+     width: 70%;
+     border: none;
+     margin: 1em;
+     padding: 1em;
+     line-height: 2.5em;
+     color: #FFF;
+     text-align: center;
+     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+     font-family: Inter;
 }
 
 button {
-    border-radius: 20px;
+    border-radius: 30px;
     background: rgba(99, 255, 227, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
      inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-    width: 50%;
+    width: 70%;
     border: none;
     margin: 1em;
+    padding: 1em;
     line-height: 2.5em;
     color: #FFF;
     text-align: center;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter;
-    font-size: 30px;
+}
 
+.top-bar {
+    height: 50px; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(99, 255, 227, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    backdrop-filter: blur(2px);
+}
 
+.bottom-bar {
+    height: 50px; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+@media only screen and (max-device-width: 600px) {
+    .container{
+        flex-direction: column;
+    }
+
+    * {
+        font-size: 20px;
+    }
+    .login-container, .logo {
+        width: 100%;
+    }
+
+    form{
+        margin: auto;
+    }
+
+    img {
+        height: 7em;
+        margin: 2em;
+    }
 }
