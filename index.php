@@ -6,23 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML, CSS">
     <meta name="description" content="Information about my website">
-    <link rel="stylesheet" type="text/css" href="/Public/css/style.css?v=3"/>
+    <link rel="stylesheet" type="text/css" href="public/css/style.css"/>
     <title>My web page</title>
 
 </head>
 <body>
-    <div class = "centralText">
-    <h1>My Project header1</h1>
-    <img src="link" alt="An image">
-    <p class ="username">@Name</p>
-    <h2>My Project header2</h2>
-    <p>Some text </p>
+    <div class = "top-bar"></div>
+    <div class = "container">
+        <div class = "logo">
+            <img src="public/img/logo.svg" alt="logo image">
+        </div>
+        <div class = "login-container">
+            <form>
+                <input name="email" type="text" placeholder="email@email.com">
+                <input name="password" type="text" placeholder="password">
+                <button>LOGIN</button>
+            </form>
+        </div>
     </div>
+    <div class = "bottom-bar"></div>
     
 </body>
 </html>
-
-<?php
-
-echo 'Hi there 👋';
-?>
