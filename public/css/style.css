@@ -3,12 +3,14 @@ body {
 }
 * { 
     box-sizing: border-box;
+    color: #ffffff;
+    font-family: Inter;
+    font-size: 1vw;
+    cursor: auto
+
   }
   .img{
     object-fit: cover;
-  }
-  .fa-solid{
-    font-size: 5em;
   }
 .container {
     width: 100vw;
@@ -53,7 +55,7 @@ form {
     width: 80%;
 }
 
-input {
+.normal-input {
     border-radius: 30px;
     background: rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
@@ -137,7 +139,8 @@ input {
     justify-content: center;
     align-items: center;
     
-    width: 50%;
+    width: 35%;
+    height: 75%;
 }
 
 .ingredients-container{
@@ -147,31 +150,26 @@ input {
     align-items: center;
 
     width: 50%;
+    height: 75%;
 }
 .coctail-row{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.ingredients-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;    
-    align-items: center;
     width: 50%;
 }
-.search-bar{
+
+.search-bar-container{
     text-align: center;
-    margin: 1vw;
-    margin-bottom: 4vw;
+    height: 30%;
 }
 .ingredients-search-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    height: 40%;
 }
 
 .ingredients-picked-container {
@@ -179,6 +177,7 @@ input {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    height: 30%;
 }
 
 .coctail-button {
@@ -207,7 +206,6 @@ input {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border: none;
     margin: 1vw;
-    margin-top: 4vw;
     width: 5vw;
     height: 5vw;
     object-fit: cover;
@@ -230,8 +228,52 @@ input {
 }
 .span{
     text-align: center;
+    margin: auto;
 }
 
+.search-input {
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+     inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+     width: 80%;
+     border: none;
+     margin: 5vw;
+     padding: 1.5vh;
+     line-height: 3vw;
+     color: #FFF;
+     text-align: center;
+     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+     font-family: Inter;
+     font-size: 2.5vw;
+}
+
+.fa-solid{
+    font-size: 3em;
+  }
+  .arrow {
+    padding: 0.75vw;
+    margin: 0vw;
+    border-radius: 20px;
+    background: rgba(99, 255, 227, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: none;
+}
+
+  .return-button{
+    position: absolute;
+    top: 2px; 
+    left: 2px; 
+    font-size: 0.65em;
+    margin: 0;
+    padding: 7.5px;
+}
+
+.arrow-coctail-button{
+
+}
 @media only screen and (max-device-width: 550px) {
     .container{
         flex-direction: column;

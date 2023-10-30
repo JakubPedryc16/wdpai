@@ -13,15 +13,14 @@
 </head>
 <body>
     <div class = "top-bar"></div>
-
     <div class = "container">
+        <button class="return-button arrow">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button class="arrow-coctail-button arrow">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
         <div class = "coctail-container">
-            <button class="icon-button">
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-            <button class="icon-button">
-                <i class="fa-solid fa-arrow-left"></i>
-            </button>
             <div class = "coctail-row">
                 <button class="coctail-button">
                     <img class = "coctail-image" src="../img/blue-coctail.jpg" alt="Ikona">
@@ -45,20 +44,18 @@
             </div>  
         </div>  
 
+        <button class="arrow-coctail-button arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
         <div class = "ingredients-container">
-            <button class="icon-button">
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-            <button class="icon-button">
-                <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <div class = "search-bar">
-                <input name="search-bar" type="text" placeholder="ingredient">
+            <div class = "search-bar-container">
+                <input class = "search-input" name="search-bar" type="text" placeholder="ingredient">
             </div>
+            
             <div class = "ingredients-search-container">
-                <button class="ingredient-button">
-                    <img class = "ingredient-image" src="../img/rum.jpg" alt="Ikona">
-                    <span>Tekst na dole</span>
+                <button class="arrow-ingredient-button arrow">
+                    <i class="fa-solid fa-arrow-left"></i>
                 </button>
                 <button class="ingredient-button">
                     <img class = "ingredient-image" src="../img/rum.jpg" alt="Ikona">
@@ -67,13 +64,17 @@
                 <button class="ingredient-button">
                     <img class = "ingredient-image" src="../img/rum.jpg" alt="Ikona">
                     <span>Tekst na dole</span>
+                </button>
+                <button class="ingredient-button">
+                    <img class = "ingredient-image" src="../img/rum.jpg" alt="Ikona">
+                    <span>Tekst na dole</span>
+                </button>
+                <button class="arrow-ingredient-picked-button arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
             <div class = ingredients-picked-container>
-                <button class="icon-button">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="icon-button">
+                <button class="arrow-ingredient-button arrow">
                     <i class="fa-solid fa-arrow-left"></i>
                 </button>
                 <button class="ingredient-picked-button">
@@ -84,6 +85,9 @@
                     <span>Tekst na dole</span>
                 <button class="ingredient-picked-button">
                     <span>Tekst na dole</span>
+                <button class="arrow-ingredient-picked-button arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
             </div>
         </div>  
     </div>
