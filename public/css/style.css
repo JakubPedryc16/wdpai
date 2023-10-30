@@ -1,7 +1,14 @@
 body {
     margin: 0
 }
-* { box-sizing: border-box;
+* { 
+    box-sizing: border-box;
+  }
+  .img{
+    object-fit: cover;
+  }
+  .fa-solid{
+    font-size: 5em;
   }
 .container {
     width: 100vw;
@@ -21,7 +28,7 @@ body {
     align-items: center;
 }
 
-img {
+.logo {
     width: 25vw;
     margin: 5vw;
 }
@@ -34,6 +41,13 @@ img {
 form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+.vertical-buttons{
+    display: flex;
+    flex-direction:row;
     justify-content: center;
     align-items: center;
     width: 80%;
@@ -57,11 +71,12 @@ input {
      font-size: 2.5vw;
 }
 
-button {
+.normal-button {
     border-radius: 30px;
     background: rgba(99, 255, 227, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
      inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
 
     width: 80%;
     border: none;
@@ -73,6 +88,26 @@ button {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter;
     font-size: 2.5vw;
+}
+.square-button {
+    border-radius: 30px;
+    background: rgba(99, 255, 227, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+     inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    height: 8vw;
+    width: 80%;
+    border: none;
+    margin: 0.5vw;
+    margin-top: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    line-height: 3vw;
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 3vw;
 }
 
 .top-bar {
@@ -96,15 +131,123 @@ button {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
+.coctail-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 50%;
+}
+
+.ingredients-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+}
+.coctail-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ingredients-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+    width: 50%;
+}
+.search-bar{
+    text-align: center;
+    margin: 1vw;
+    margin-bottom: 4vw;
+}
+.ingredients-search-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ingredients-picked-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.coctail-button {
+    border-radius: 20px;
+    background: rgba(99, 255, 227, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    margin: 1vw;
+    width: 15vw;
+    height: 20vw;
+}
+
+.ingredient-button{
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    width: 10vw;
+    height: 14vw;
+    margin: 1vw;
+}
+
+.ingredient-picked-button{
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    margin: 1vw;
+    margin-top: 4vw;
+    width: 5vw;
+    height: 5vw;
+    object-fit: cover;
+}
+
+.coctail-image{
+    border-radius: 30px;
+    width: 10vw;
+    height: 14vw;
+    object-fit: cover;
+    margin: 1vw;
+}
+
+.ingredient-image{
+    border-radius: 30px;
+    width: 6vw;
+    height: 8vw;
+    object-fit: cover;
+    margin: 1vw;
+}
+.span{
+    text-align: center;
+}
+
 @media only screen and (max-device-width: 550px) {
     .container{
         flex-direction: column;
     }
-    button, input {
+    .normal-button, input {
         line-height: 1.5em;
         font-size: 1.5em;
         margin: 0.5em;
     }
+    .square-button{
+        line-height: 1em;
+        font-size: 1.5em;
+        margin: 0.5em;
+        height: 4em;
+    }
+
     .login-container{
         width: 100%;
         height: 40%;
