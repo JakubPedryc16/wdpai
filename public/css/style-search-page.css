@@ -24,94 +24,6 @@ img {
     justify-content: center;
     align-items: center;
 }
-.logo {
-    width: 50%;
-    width: 25vw;
-    margin: 5vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-container {
-    caret-color: transparent;
-    width: 50%;
-    text-align: center;
-}
-
-form {
-    caret-color: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-}
-.vertical-buttons{
-    display: flex;
-    flex-direction:row;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-}
-
-.normal-input {
-    border-radius: 30px;
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
-    inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-    width: 80%;
-    border: none;
-    margin: 3vh;
-    padding: 1.5vh;
-    line-height: 3vw;
-    color: #FFF;
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
-    font-size: 2.5vw;
-}
-
-.normal-button {
-    border-radius: 30px;
-    background: rgba(99, 255, 227, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
-     inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-
-    width: 80%;
-    border: none;
-    margin: 3vh;
-    padding: 1.5vh;
-    line-height: 3vw;
-    color: #FFF;
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
-    font-size: 2.5vw;
-}
-.square-button {
-    border-radius: 30px;
-    background: rgba(99, 255, 227, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
-     inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-    height: 8vw;
-    width: 80%;
-    border: none;
-    margin: 0.5vw;
-    margin-top: 2vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-    line-height: 3vw;
-    color: #FFF;
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
-    font-size: 3vw;
-}
 
 .top-bar {
     caret-color: transparent;
@@ -174,7 +86,6 @@ form {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
 }
 .ingredients-search-container{
     display: flex;
@@ -287,100 +198,84 @@ form {
     padding: 7.5px;
 }
 
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-device-width: 450px) {
     .container{
         flex-direction: column;
     }
-    .normal-button, input {
-        line-height: 1.5em;
-        font-size: 1.5em;
-        margin: 0.5em;
-    }
-    .square-button{
-        line-height: 1em;
-        font-size: 1.5em;
-        margin: 0.5em;
-        height: 4em;
-    }
-
-    .login-container{
-        width: 100%;
-        height: 40%;
-        margin: 0 auto;
-    }
-
-    .logo{
-        width: 100%;
-        height: 40%;
-    }
-
-    form{
-        margin: 0 auto;
-        width: 80%;
-        height:  100%;
-    }
-
-    img {
-        width: 50vw;
-        margin: 5vw;
-    }
-
     .coctail-container {
-        height: 40%;
+        height: 35%;
         width: 60%;
+        margin-top: 10%;
     }
     .ingredients-container {
-        height: 50%;
+        height: 35%;
         width: 100%;
+        margin-bottom: 10%;
+        
     }
     .coctail-button {
         margin: 0.5vw;
+        margin-top: 2vw;
         width: 22.5vw;
         height: 30vw;
+        font-size: 3vw;
     }
     
     .ingredient-button{
-        width: 15vw;
-        height: 21vw;
-        margin: 0.5vw;
+        width: 18vw;
+        height: 22vw;
+        margin: 2vw;
+
     }
     
     .ingredient-picked-button{
-        margin: 0.5vw;
-        width: 7.5vw;
-        height: 7.5vw;
+        margin: 1vw;
+        width: 15vw;
+        height: 10vw;
     }
     
     .coctail-image{
-        width: 15vw;
-        height: 21vw;
-        margin: 0.5vw;
+        width: 16vw;
+        height: 22vw;
+        margin: 1vw;
     }
     
     .ingredient-image{
-        width: 9vw;
-        height: 12vw;
-        margin: 0.5vw;
+        width: 10vw;
+        height: 14vw;
+        margin: 1vw;
     }
-    .span{
-        font-size: 1.5em;
+    span{
     }
     
     .search-input {
         margin: 0.5vw;
         line-height: 4.5vw;
         font-size: 1.5em;
+        width: 100%;
     }
 
     .ingredients-search-container{
         width: 100%;
     }
     
+    .coctail-text{
+        font-size: 3vw;
+    }
+    .ingredient-text{
+        font-size: 2vw;
+    }
+    .search-bar-container{
+        width: 50%;
+        font-size: 3vw;
+    }
+
     .fa-solid{
+        font-size: 5vw;
     }
 
     .arrow {
-
+        
     }
         
     .return-button{

@@ -1,0 +1,94 @@
+body {
+    margin: 0
+}
+* { 
+    box-sizing: border-box;
+    color: #ffffff;
+    font-family: Inter;
+    font-size: 1vw;
+    cursor: auto
+
+  }
+img {
+    object-fit: cover;
+  }
+.container {
+    flex-grow: 1;
+    caret-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    background: #2A2F3C;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    width: 50%;
+    width: 25vw;
+    margin: 5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    caret-color: transparent;
+    width: 50%;
+    text-align: center;
+}
+
+form {
+    caret-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+.vertical-buttons{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.normal-input {
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+    inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    width: 80%;
+    border: none;
+    margin: 3vh;
+    padding: 1.5vh;
+    line-height: 3vw;
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 2.5vw;
+}
+
+.normal-button {
+    border-radius: 30px;
+    background: rgba(99, 255, 227, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+     inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+
+    width: 80%;
+    border: none;
+    margin: 3vh;
+    padding: 1.5vh;
+    line-height: 3vw;
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 2.5vw;
+}

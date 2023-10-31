@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML, CSS">
     <meta name="description" content="Information about my website">
-    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="public/css/style.css"/>
     <title>My web page</title>
 
 </head>
@@ -14,7 +14,7 @@
     <div class = "top-bar"></div>
     <div class = "container">
         <div class = "logo">
-            <img class = "logo" src="../img/logo.svg" alt="logo image">
+            <img class = "logo" src="public/img/logo.svg" alt="logo image">
         </div>
         <div class = "login-container">
             <form>
