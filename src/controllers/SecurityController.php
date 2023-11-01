@@ -1,20 +1,30 @@
 <?php
 
-use models\User;
+namespace controllers;
+use AppController;
+use repository\UserRepository;
 
 require_once 'AppController.php';
-require_once __DIR__.'/../models/User.php';
+require_once __DIR__ . '/../models/User.php';
+
+
 class SecurityController extends AppController
 {
-    public function login() {
-        $user = new User('jsnow@pk.edu.pl', 'admin', 'John', 'Snow');
+    public function login()
+    {
+        $userRepository = new UserRepository();
 
-//        if($this->isPost()){
-//            return $this->login('login');
-//        }
+        if (!$this->isPost()) {
+            return $this->login('login');
+        }
+
         $email = $_POST["email"];
         $password = $_POST["password"];
+        $user = $userRepository->getUser($email);
 
+        if (!$user) {
+            return $this->render('login', ['messages' => ['User with this email doesn\'t exist!']]);
+        }
         if ($user->getEmail() != $email) {
             return $this->render('login', ['messages' => ['User with this email doesn\'t exist!']]);
         }
