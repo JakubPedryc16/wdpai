@@ -1,8 +1,7 @@
 <?php
-namespace repository;
+
 
 use models\User;
-use PDO;
 
 require_once __DIR__.'/../models/User.php';
 require_once 'Repository.php';

@@ -24,8 +24,8 @@
             </button>   
             <div class = "coctail-row">
                 <button class="coctail-button">
-                    <img class = "coctail-image" src="public/img/blue-coctail.jpg" alt="Ikona">
-                    <span class = "coctail-text" >Tekst na dole</span>
+                    <img class = "coctail-image" src="public/uploads/<?= $cocktail->getImage() ?>" alt="Ikona">
+                    <span class = "coctail-text" ><?= $cocktail->getName() ?></span>
                 </button>
                 <button class="coctail-button">
                     <img class = "coctail-image" src="public/img/blue-coctail.jpg" alt="Ikona">
