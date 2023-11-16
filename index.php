@@ -7,7 +7,7 @@ $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get('', 'DefaultController');
 Routing::get('mainPage', 'DefaultController');
-Routing::get('searchPage', 'DefaultController');
+Routing::get('searchPage', 'CocktailController');
 Routing::get('cocktailPage', 'DefaultController');
 Routing::get('addCocktailPage', 'DefaultController');
 

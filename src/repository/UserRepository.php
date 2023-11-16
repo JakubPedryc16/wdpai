@@ -1,8 +1,5 @@
 <?php
 
-
-use models\User;
-
 require_once __DIR__.'/../models/User.php';
 require_once 'Repository.php';
 

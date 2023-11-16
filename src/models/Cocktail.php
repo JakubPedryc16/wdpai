@@ -30,5 +30,4 @@ class Cocktail
         $this->image = $image;
     }
 
-
 }

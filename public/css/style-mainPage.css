@@ -4,6 +4,7 @@ body {
 * {
     box-sizing: border-box;
 }
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -29,7 +30,6 @@ body {
     caret-color: transparent;
     margin-left: 10vw;
 }
-
 .login-container {
     width: 60%;
     display: flex;
@@ -38,9 +38,6 @@ body {
     align-items: center;
     caret-color: transparent;
     margin-right: 10vw;
-}
-.messages {
-    font-size: 1.5vw;
 }
 form {
     border-radius: 30px;
@@ -53,41 +50,48 @@ form {
     caret-color: transparent;
     background: rgba(0, 0, 0, 0.125);
 }
-
-.normal-input {
-    width: 80%;
-
-    background: rgba(0, 0, 0, 0.125);
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
-    inset, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    caret-color: #2A2F3C;
-    border: none;
-    margin: 1vw;
-    padding: 1vw;
-
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter, serif;
-    color: #FFF;
-    text-align: center;
-    font-size: 1vw;
-
-}
 .normal-button {
     width: 80%;
     border-radius: 30px;
     background: rgba(99, 255, 227, 0.25);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
-     inset, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    inset, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     caret-color: transparent;
     border: none;
     margin: 1vw;
     padding: 1vw;
-
+    height: 8vw;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter, serif;
     color: #FFF;
     text-align: center;
-    font-size: 1vw;
+    font-size: 2vw;
+}
+.vertical-buttons{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+.square-button {
+    border-radius: 30px;
+    background: rgba(99, 255, 227, 0.25);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
+    inset, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+    height: 8vw;
+    width: 100%;
+    border: none;
+    margin: 0.5vw ;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter, serif;
+    font-size: 1.5vw;
 }
 .bar {
     caret-color: transparent;
@@ -110,17 +114,28 @@ form {
     background: rgba(0, 0, 0, 0.25);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
+
 @media only screen and (max-device-width: 450px) {
-    .container {
+    .container{
         flex-direction: column;
     }
-
     .normal-button, .normal-input {
-        padding: 2.5vw;
-        font-size: 2.5vw;
-        margin: 2.5vw;
+        border-radius: 20px;
+        font-size: 3vw;
+        margin: 2vw;
+        padding: 5vw;
+        height: 20vw;
     }
-
+    .square-button{
+        border-radius: 20px;
+        font-size: 3vw;
+        margin: 2vw;
+        padding: 5vw;
+        height: 20vw;
+    }
+    .vertical-buttons{
+        width: 90%;
+    }
     .login-container {
         width: 100%;
         height: 40%;
@@ -130,29 +145,22 @@ form {
         align-items: start;
         margin: 0;
     }
-
     .logo-container{
         width: 50%;
         height: 30%;
         margin-left: 0;
         justify-content: center;
     }
-
-    form {
-        margin: 5vw auto;
-        width: 70%;
-        height: 100%;
-        justify-content: start;
-        align-items: center;
-    }
-
     .logo {
         width: 75%;
         margin: 5vw;
     }
-    .messages {
-        font-size: 3vw;
-        margin-top: 3vw;
-        margin-bottom: 1vw;
+    form {
+        margin: 5vw auto;
+        width: 70%;
+        height: 70%;
+        justify-content: start;
+        align-items: center;
     }
+
 }

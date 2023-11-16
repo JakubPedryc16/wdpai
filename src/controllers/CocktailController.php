@@ -3,13 +3,24 @@
 
 require_once 'AppController.php';
 require_once __DIR__ .'/../models/Cocktail.php';
-
+require_once __DIR__.'/../repository/CocktailRepository.php';
 class CocktailController extends AppController
 {
     const MAX_FILE_SIZE = 1024*1024;
     const SUPPORTED_TYPES = ['image/png', 'image/jpg'];
     const UPLOAD_DIRECTORY = '/../public/uploads/';
     private $messages = [];
+    private $cocktailRepository;
+
+    public function __construct() {
+        parent::__construct();
+        $this->cocktailRepository = new CocktailRepository();
+    }
+
+    public function searchPage() {
+        $cocktails = $this->cocktailRepository->getCocktails();
+        $this->render('searchPage', ['cocktails' => $cocktails]);
+    }
     public function addCocktail()
     {
         if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
@@ -19,10 +30,13 @@ class CocktailController extends AppController
             );
 
             $cocktail = new Cocktail($_POST['name'],$_FILES['file']['name']);
-
-            return $this->render('searchPage', ['messages' => $this->messages, 'cocktail'=>$cocktail]);
+            $this->cocktailRepository->addCocktail($cocktail);
+            return $this->render('searchPage', [
+                'cocktails' => $this->cocktailRepository->getCocktails(),
+                ['messages' => $this->messages]
+            ]);
         }
-        $this->render('addCocktailPage');
+        return $this->render('addCocktailPage', ['messages' => $this->messages]);
     }
 
     private function validate(array $file): bool
