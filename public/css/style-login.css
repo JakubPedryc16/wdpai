@@ -7,7 +7,7 @@ body {
 .container {
     width: 100vw;
     height: 100vh;
-    background: #2A2F3C;
+    background: rgb(30, 30, 35);
 
     display: flex;
     flex-direction: row;
@@ -41,6 +41,7 @@ body {
 }
 .messages {
     font-size: 1.5vw;
+    color: rgba(255, 255, 255, 0.75);
 }
 form {
     border-radius: 30px;
@@ -56,12 +57,13 @@ form {
 
 .normal-input {
     width: 80%;
-
+    border-radius: 2vw;
     background: rgba(0, 0, 0, 0.125);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
     inset, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    caret-color: #2A2F3C;
+    caret-color: transparent;
     border: none;
+
     margin: 1vw;
     padding: 1vw;
 
@@ -72,10 +74,21 @@ form {
     font-size: 1vw;
 
 }
+input:focus {
+    caret-color: rgba(30, 100, 100, 0.75);
+    outline: 0.2vw solid rgba(30, 100, 100, 0.75);
+}
+input:focus::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgba(20, 20, 22, 1) inset; /* Background color */
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.75) !important; /* Text color */
+}
 .normal-button {
     width: 80%;
     border-radius: 30px;
-    background: rgba(99, 255, 227, 0.25);
+    background: rgba(30, 100, 100, 0.75);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
      inset, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     caret-color: transparent;
@@ -88,6 +101,15 @@ form {
     color: #FFF;
     text-align: center;
     font-size: 1vw;
+    transition: background 0.3s ease;
+}
+button:hover {
+    transform: scale(1.05);
+    background: rgba(30, 100, 100, 1);
+}
+button:active {
+    transform: scale(0.95);
+    background: rgba(30, 100, 100, 0.5);
 }
 .bar {
     caret-color: transparent;
@@ -98,7 +120,7 @@ form {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(99, 255, 227, 0.25);
+    background: rgba(30, 100, 100, 0.75);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
     backdrop-filter: blur(2px);
 }
