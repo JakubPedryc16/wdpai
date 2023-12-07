@@ -8,6 +8,7 @@
     <meta name="description" content="Information about my website">
     <link rel="stylesheet" type="text/css" href="/public/css/style-searchPage.css"/>
     <script src="https://kit.fontawesome.com/88509a47d3.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/public/js/search.js" defer></script>
     <title>My web page</title>
 
 </head>
@@ -25,6 +26,7 @@
                     <i class="fa-solid fa-angle-left"></i>
                 </button>
                 <div class = "cocktail-row">
+                    <section class = "test">
                     <button class="cocktail-button">
                         <img class = "cocktail-image" src="public/uploads/<?= $cocktails[0]->getImage()?>" alt="Cocktail_Image">
                         <span class = "cocktail-text" ><?= $cocktails[0]->getName()?></span>
@@ -33,6 +35,7 @@
                         <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
                         <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
                     </button>
+                    </section>
                 </div>
 
                 <div class = "cocktail-row">
@@ -103,4 +106,11 @@
     <div class = "bottom-bar bar"></div>
     
 </body>
+<template id = "cocktail-template">
+    <button class="cocktail-button">
+        <img class = "cocktail-image" src="/public/uploads/image" alt="Cocktail_Image">
+        <span class = "cocktail-text" >name</span>
+    </button>
+</template>
+
 </html>
