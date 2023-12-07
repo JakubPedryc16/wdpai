@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/style-searchPage.css"/>
     <script src="https://kit.fontawesome.com/88509a47d3.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/search.js" defer></script>
+    <script type="text/javascript" src="/public/js/statistics.js" defer></script>
     <title>My web page</title>
 
 </head>
@@ -20,30 +21,35 @@
         </button>
 
         <?php if (isset($cocktails) && is_array($cocktails) && count($cocktails) >= 4): ?>
-                    <section class = "test">
+            <section class = "cocktails-container">
 
-                    <button class="cocktail-button">
-                        <img class = "cocktail-image" src="public/uploads/<?= $cocktails[0]->getImage()?>" alt="Cocktail_Image">
-                        <span class = "cocktail-text" ><?= $cocktails[0]->getName()?></span>
-                    </button>
-                    <button class="cocktail-button">
-                        <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
-                        <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
-                    </button>
-                    <button class="cocktail-button">
-                        <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
-                        <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
-                    </button>
-                    <button class="cocktail-button">
-                        <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
-                        <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
-                    </button>
-                    <button class="cocktail-button">
-                        <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
-                        <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
-                    </button>
+                <button class="cocktail-button" id="<?= $cocktails[0]->getCocktailsId(); ?>">
+                    <img class = "cocktail-image" src="public/uploads/<?= $cocktails[0]->getImage()?>" alt="Cocktail_Image">
+                    <span class = "cocktail-text" ><?= $cocktails[0]->getName()?> </span>
+                    <i class="fas fa-heart"><?= $cocktails[0]->getLikeCount(); ?></i>
+                </button>
+                <button class="cocktail-button" id="<?= $cocktails[1]->getCocktailsId(); ?>">
+                    <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
+                    <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
+                    <i class="fas fa-heart"><?= $cocktails[1]->getLikeCount(); ?></i>
+                </button>
+                <button class="cocktail-button" id="<?= $cocktails[1]->getCocktailsId(); ?>">
+                    <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
+                    <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
+                    <i class="fas fa-heart"><?= $cocktails[1]->getLikeCount(); ?></i>
+                </button>
+                <button class="cocktail-button" id="<?= $cocktails[1]->getCocktailsId(); ?>">
+                    <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
+                    <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
+                    <i class="fas fa-heart"><?= $cocktails[1]->getLikeCount(); ?></i>
+                </button>
+                <button class="cocktail-button" id="<?= $cocktails[1]->getCocktailsId(); ?>">
+                    <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
+                    <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
+                    <i class="fas fa-heart"><?= $cocktails[1]->getLikeCount(); ?></i>
+                </button>
 
-                    </section>
+            </section>
         <?php endif; ?>
 
 
@@ -99,9 +105,10 @@
     
 </body>
 <template id = "cocktail-template">
-    <button class="cocktail-button">
+    <button class="cocktail-button" id="id">
         <img class = "cocktail-image" src="/public/uploads/image" alt="Cocktail_Image">
         <span class = "cocktail-text" >name</span>
+        <i class="fas fa-heart">likeCount</i>
     </button>
 </template>
 

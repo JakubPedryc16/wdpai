@@ -66,5 +66,9 @@ class CocktailController extends AppController
         return true;
     }
 
+    public function like(int $cocktails_id) {
+        $this->cocktailRepository->like($cocktails_id);
+        http_response_code(200);
+    }
 
 }

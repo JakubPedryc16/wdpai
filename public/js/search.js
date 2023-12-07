@@ -18,12 +18,12 @@ search.addEventListener("keyup", function(event) {
        }).then(function (cocktails){
            cocktailContainer.innerHTML = "";
 
-           loadProjects(cocktails)
+           loadCocktails(cocktails)
        });
     }
     });
 
-function loadProjects(cocktails) {
+function loadCocktails(cocktails) {
     cocktails.forEach(cocktail => {
         console.log(cocktail);
         createCocktail(cocktail)
@@ -38,7 +38,9 @@ function createCocktail(cocktail) {
     image.src = `/public/uploads/${cocktail.image}`;
     const name = clone.querySelector("span");
     name.innerHTML = cocktail.name;
-    //const like = clone.querySelector(".fa-nameToReplace");
-    //like.innerText = cocktail.like;
+    const like = clone.querySelector(".fa-heart");
+    like.innerText = cocktail.likeCount;
+    const id = clone.querySelector("id");
+    id.innerHTML = cocktail.id;
     cocktailContainer.appendChild(clone);
 }
