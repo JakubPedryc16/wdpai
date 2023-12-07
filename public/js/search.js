@@ -1,6 +1,6 @@
 
 const search = document.querySelector('input[placeholder="ingredient"]')
-const cocktailContainer = document.querySelector('.test')
+const cocktailContainer = document.querySelector('section')
 search.addEventListener("keyup", function(event) {
     if(event.key === "Enter") {
         event.preventDefault();

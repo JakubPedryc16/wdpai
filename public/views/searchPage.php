@@ -20,13 +20,8 @@
         </button>
 
         <?php if (isset($cocktails) && is_array($cocktails) && count($cocktails) >= 4): ?>
-
-        <div class = "cocktail-container">
-                <button class="arrow-cocktail-button arrow">
-                    <i class="fa-solid fa-angle-left"></i>
-                </button>
-                <div class = "cocktail-row">
                     <section class = "test">
+
                     <button class="cocktail-button">
                         <img class = "cocktail-image" src="public/uploads/<?= $cocktails[0]->getImage()?>" alt="Cocktail_Image">
                         <span class = "cocktail-text" ><?= $cocktails[0]->getName()?></span>
@@ -35,23 +30,20 @@
                         <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
                         <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
                     </button>
-                    </section>
-                </div>
+                    <button class="cocktail-button">
+                        <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
+                        <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
+                    </button>
+                    <button class="cocktail-button">
+                        <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
+                        <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
+                    </button>
+                    <button class="cocktail-button">
+                        <img class = "cocktail-image" src="public/uploads/<?= $cocktails[1]->getImage()?>" alt="Cocktail_Image">
+                        <span class = "cocktail-text" ><?= $cocktails[1]->getName()?></span>
+                    </button>
 
-                <div class = "cocktail-row">
-                    <button class="cocktail-button">
-                        <img class = "cocktail-image" src="public/uploads/<?= $cocktails[2]->getImage()?>" alt="Cocktail_Image">
-                        <span class = "cocktail-text" ><?= $cocktails[2]->getName()?></span>
-                    </button>
-                    <button class="cocktail-button">
-                        <img class = "cocktail-image" src="public/uploads/<?= $cocktails[3]->getImage()?>" alt="Cocktail_Image">
-                        <span class = "cocktail-text" ><?= $cocktails[3]->getName()?></span>
-                    </button>
-                </div>
-                <button class="arrow-cocktail-button arrow">
-                    <i class="fa-solid fa-angle-right"></i>
-                </button>
-        </div>
+                    </section>
         <?php endif; ?>
 
 
