@@ -10,6 +10,7 @@ Routing::get('mainPage', 'DefaultController');
 Routing::get('searchPage', 'CocktailController');
 Routing::get('cocktailPage', 'DefaultController');
 Routing::get('addCocktailPage', 'DefaultController');
+Routing::get('register', 'DefaultController');
 
 Routing::post('login', 'SecurityController');
 Routing::post('addCocktail', 'CocktailController');

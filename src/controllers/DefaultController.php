@@ -16,6 +16,9 @@ class DefaultController extends AppController {
     public function addCocktailPage() {
         $this->render('addCocktailPage');
     }
+    public function register() {
+        $this->render('register');
+    }
 
 
 }
