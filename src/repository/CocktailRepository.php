@@ -7,7 +7,7 @@ class CocktailRepository extends Repository
 {
     public function getCocktail(int $cocktails_id) {
         $stmt = $this->database->connect()->prepare('
-        SELECT * FROM public.cocktails WHERE cocktails_id = :cocktails_id 
+        SELECT * FROM public.cocktails WHERE id_cocktails = :cocktails_id 
         ');
         $stmt->bindParam(':$cocktails_id',$cocktails_id,PDO::PARAM_INT);
         $stmt->execute();
@@ -68,7 +68,7 @@ class CocktailRepository extends Repository
     }
     public function like(int $cocktails_id) {
         $stmt = $this->database->connect()->prepare('
-            UPDATE cocktails SET "likeCount" = "likeCount" + 1 WHERE cocktails_id = :cocktails_id
+            UPDATE cocktails SET "likeCount" = "likeCount" + 1 WHERE id_cocktails = :cocktails_id
         ');
 
         $stmt->bindParam(':cocktails_id', $cocktails_id, PDO::PARAM_INT);

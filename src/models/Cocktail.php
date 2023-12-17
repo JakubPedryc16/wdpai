@@ -5,14 +5,14 @@ class Cocktail
     private $name;
     private $image;
     private $likeCount;
-    private $cocktails_id;
+    private $idCocktails;
 
-    public function __construct($name, $image, $likeCount = 0, $cocktails_id = null)
+    public function __construct($name, $image, $likeCount = 0, $idCocktail = null)
     {
         $this->name = $name;
         $this->image = $image;
         $this->likeCount = $likeCount;
-        $this->cocktails_id = $cocktails_id;
+        $this->idCocktails = $idCocktail;
     }
 
     public function getName()
@@ -44,14 +44,14 @@ class Cocktail
         $this->likeCount = $likeCount;
     }
 
-    public function getCocktailsId()
+    public function getIdCocktails()
     {
-        return $this->cocktails_id;
+        return $this->idCocktails;
     }
 
-    public function setCocktailsId($cocktails_id)
+    public function setIdCocktails($idCocktails)
     {
-        $this->cocktails_id = $cocktails_id;
+        $this->idCocktails = $idCocktails;
     }
 
 }
