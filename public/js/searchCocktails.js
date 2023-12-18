@@ -1,7 +1,8 @@
 
-const search = document.querySelector('input[placeholder="ingredient"]')
+
+const searchCocktails = document.querySelector('input[placeholder="ingredient"]')
 const cocktailContainer = document.querySelector('section')
-search.addEventListener("keyup", function(event) {
+searchCocktails.addEventListener("keyup", function(event) {
     if(event.key === "Enter") {
         event.preventDefault();
 
@@ -16,8 +17,8 @@ search.addEventListener("keyup", function(event) {
        }).then(function (response){
            return response.json();
        }).then(function (cocktails){
-           cocktailContainer.innerHTML = "";
 
+           cocktailContainer.innerHTML = "";
            loadCocktails(cocktails)
        });
     }
@@ -26,21 +27,27 @@ search.addEventListener("keyup", function(event) {
 function loadCocktails(cocktails) {
     cocktails.forEach(cocktail => {
         console.log(cocktail);
-        createCocktail(cocktail)
+        createCocktail(cocktail);
     })
 }
-function createCocktail(cocktail) {
+function createCocktail(ingredient) {
+
     const template = document.querySelector("#cocktail-template");
 
     const clone = template.content.cloneNode(true);
 
     const image = clone.querySelector("img");
-    image.src = `/public/uploads/${cocktail.image}`;
+    image.src = `/public/uploads/${ingredient.image}`;
+
     const name = clone.querySelector("span");
-    name.innerHTML = cocktail.name;
+    name.innerHTML = ingredient.name;
+
     const like = clone.querySelector(".fa-heart");
-    like.innerText = cocktail.likeCount;
-    const id = clone.querySelector("id");
-    id.innerHTML = cocktail.id;
+
+    like.innerText = ingredient.likeCount;
+
+    const button = clone.querySelector(".cocktail-button");
+
+    button.id = ingredient.id;
     cocktailContainer.appendChild(clone);
 }

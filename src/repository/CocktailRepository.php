@@ -5,11 +5,11 @@ require_once 'Repository.php';
 
 class CocktailRepository extends Repository
 {
-    public function getCocktail(int $cocktails_id) {
+    public function getCocktail(int $id_cocktails) {
         $stmt = $this->database->connect()->prepare('
-        SELECT * FROM public.cocktails WHERE id_cocktails = :cocktails_id 
+        SELECT * FROM public.cocktails WHERE id_cocktails = :id_cocktails 
         ');
-        $stmt->bindParam(':$cocktails_id',$cocktails_id,PDO::PARAM_INT);
+        $stmt->bindParam(':$id_cocktails',$id_cocktails,PDO::PARAM_INT);
         $stmt->execute();
 
         $cocktail = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -20,7 +20,7 @@ class CocktailRepository extends Repository
             $cocktail['name'],
             $cocktail['image'],
             $cocktail['likeCount'],
-            $cocktail['cocktails_id']
+            $cocktail['id_cocktails']
         );
     }
 
@@ -49,7 +49,7 @@ class CocktailRepository extends Repository
                 $cocktail['name'],
                 $cocktail['image'],
                 $cocktail['likeCount'],
-                $cocktail['cocktails_id']
+                $cocktail['id_cocktails']
             );
         }
         return $result;
@@ -58,21 +58,31 @@ class CocktailRepository extends Repository
     public function getCocktailByName(string $searchString){
         $searchString = '%'.strtolower($searchString).'%';
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM cocktails WHERE LOWER(name) LIKE :search
+            SELECT * FROM cocktails WHERE LOWER(name) LIKE :searchCocktails
         ');
-        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->bindParam(':searchCocktails', $searchString, PDO::PARAM_STR);
         $stmt->execute();
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
-    public function like(int $cocktails_id) {
+    public function like(int $id_cocktails) {
         $stmt = $this->database->connect()->prepare('
-            UPDATE cocktails SET "likeCount" = "likeCount" + 1 WHERE id_cocktails = :cocktails_id
+            UPDATE cocktails SET "likeCount" = "likeCount" + 1 WHERE id_cocktails = :id_cocktails
         ');
 
-        $stmt->bindParam(':cocktails_id', $cocktails_id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_cocktails', $id_cocktails, PDO::PARAM_INT);
         $stmt->execute();
+    }
+    public function getLastInsertedId(): ?int
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT MAX(id_cocktails) as last_id FROM public.cocktails
+        ');
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result['last_id'] ?? null;
     }
 
 }

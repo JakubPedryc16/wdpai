@@ -4,6 +4,9 @@
 require_once 'AppController.php';
 require_once __DIR__ .'/../models/Cocktail.php';
 require_once __DIR__.'/../repository/CocktailRepository.php';
+require_once __DIR__.'/../repository/CocktailsIngredientsRepository.php';
+require_once __DIR__.'/../repository/IngredientRepository.php';
+
 class CocktailController extends AppController
 {
     const MAX_FILE_SIZE = 1024*1024;
@@ -11,18 +14,23 @@ class CocktailController extends AppController
     const UPLOAD_DIRECTORY = '/../public/uploads/';
     private $messages = [];
     private $cocktailRepository;
-
+    private $cocktailsIngredientsRepository;
+    private $ingredientsRepository;
     public function __construct() {
         parent::__construct();
         $this->cocktailRepository = new CocktailRepository();
+        $this->cocktailsIngredientsRepository = new CocktailsIngredientsRepository();
+        $this->ingredientsRepository = new IngredientRepository();
     }
 
     public function searchPage() {
         $cocktails = $this->cocktailRepository->getCocktails();
-        $this->render('searchPage', ['cocktails' => $cocktails]);
+        $ingredients = $this->ingredientsRepository->getIngredients();
+        $this->render('searchPage', ['cocktails' => $cocktails, 'ingredients' => $ingredients]);
     }
     public function addCocktail()
     {
+
         if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
             move_uploaded_file(
                 $_FILES['file']['tmp_name'],
@@ -31,10 +39,29 @@ class CocktailController extends AppController
 
             $cocktail = new Cocktail($_POST['name'],$_FILES['file']['name']);
             $this->cocktailRepository->addCocktail($cocktail);
-            return $this->render('searchPage', [
-                'cocktails' => $this->cocktailRepository->getCocktails(),
-                ['messages' => $this->messages]
-            ]);
+            // Pobierz ID ostatnio dodanego koktajlu
+            $lastCocktailId = $this->cocktailRepository->getLastInsertedId();
+
+            // Pobierz wybrane składniki z formularza
+            $selectedIngredients = $_POST['selectedIngredients'] ?? [];
+            $decodedIngredients = json_decode($selectedIngredients, true);
+            // Dodaj składniki do koktajlu w Ingredients_Cocktails
+            var_dump($decodedIngredients);
+            foreach ($decodedIngredients as $ingredientId) {
+                die("asddsa");
+                $ingredient = $this->ingredientsRepository->getIngredient($ingredientId);
+                if ($ingredient) {
+                    $this->cocktailsIngredientsRepository->addIngredientToCocktail($ingredient, $lastCocktailId);
+                }
+            }
+
+            header('Location: searchPage');
+            exit;
+
+//             $this->render('searchPage', [
+//                'cocktails' => $this->cocktailRepository->getCocktails(),
+//                ['messages' => $this->messages]
+//            ]);
         }
         return $this->render('addCocktailPage', ['messages' => $this->messages]);
     }
@@ -52,6 +79,7 @@ class CocktailController extends AppController
         }
         
     }
+
 
     private function validate(array $file): bool
     {

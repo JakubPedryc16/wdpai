@@ -3,9 +3,10 @@
 require_once __DIR__.'/../models/Ingredient.php';
 require_once 'Repository.php';
 
-class CocktailRepository extends Repository
+class IngredientRepository extends Repository
 {
-    public function getIngredient(int $id_ingredients) {
+    public function getIngredient(int $id_ingredients): ?Ingredient
+    {
         $stmt = $this->database->connect()->prepare('
         SELECT * FROM public.ingredients WHERE id_ingredients = :id_ingredients 
         ');
@@ -24,7 +25,7 @@ class CocktailRepository extends Repository
     }
     public function addIngredient(Ingredient $ingredient) {
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO public.ingredients ("name", "picture")
+            INSERT INTO public.ingredients ("name", "image")
             VALUES (?, ?)
         ');
         $stmt->execute([
@@ -43,12 +44,13 @@ class CocktailRepository extends Repository
         $ingredients = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($ingredients as $ingredient) {
-            $result[] = new Cocktail(
+            $result[] = new Ingredient(
                 $ingredient['name'],
-                $ingredient['picture'],
+                $ingredient['image'],
                 $ingredient['id_ingredients']
             );
         }
+
         return $result;
     }
 
@@ -59,7 +61,6 @@ class CocktailRepository extends Repository
         ');
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
         $stmt->execute();
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
