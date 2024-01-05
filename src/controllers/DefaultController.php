@@ -13,9 +13,7 @@ class DefaultController extends AppController {
     public function cocktailPage() {
         $this->render('cocktailPage');
     }
-    public function addCocktailPage() {
-        $this->render('addCocktailPage');
-    }
+
 
 
 }

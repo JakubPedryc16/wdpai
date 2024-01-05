@@ -2,6 +2,7 @@
 
 const searchIngredients = document.querySelector('input[placeholder="ingredient"]')
 const ingredientContainer = document.querySelector('.ingredients-search-container')
+
 searchIngredients.addEventListener("keyup", function(event) {
     if(event.key === "Enter") {
         event.preventDefault();
@@ -20,6 +21,9 @@ searchIngredients.addEventListener("keyup", function(event) {
            ingredientContainer.innerHTML = "";
            loadCocktails(ingredients)
        });
+
+
+
     }
     });
 

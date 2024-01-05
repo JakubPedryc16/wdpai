@@ -24,15 +24,26 @@ class CocktailRepository extends Repository
         );
     }
 
-    public function addCocktail(Cocktail $cocktail) {
-        $stmt = $this->database->connect()->prepare('
+    public function addCocktail(Cocktail $cocktail): ?int {
+        $pdo = $this->database->connect();
+
+        try {
+            $stmt = $pdo->prepare('
             INSERT INTO public.cocktails ("name", "image")
             VALUES (?, ?)
         ');
-        $stmt->execute([
-            $cocktail->getName(),
-            $cocktail->getImage()
-        ]);
+
+            $stmt->execute([
+                $cocktail->getName(),
+                $cocktail->getImage()
+            ]);
+
+            $lastInsertId = $pdo->lastInsertId();
+
+            return $lastInsertId ? (int)$lastInsertId : null;
+        } catch (PDOException $e) {
+            return null;
+        }
     }
     public function getCocktails(): array
     {
@@ -67,7 +78,7 @@ class CocktailRepository extends Repository
     }
     public function like(int $id_cocktails) {
         $stmt = $this->database->connect()->prepare('
-            UPDATE cocktails SET "likeCount" = "likeCount" + 1 WHERE id_cocktails = :id_cocktails
+            UPDATE cocktails SET "like_count" = "like_count" + 1 WHERE id_cocktails = :id_cocktails
         ');
 
         $stmt->bindParam(':id_cocktails', $id_cocktails, PDO::PARAM_INT);

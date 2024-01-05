@@ -8,7 +8,8 @@
     <meta name="description" content="Information about my website">
     <link rel="stylesheet" type="text/css" href="/public/css/style-addCoctailPage.css"/>
     <script src="https://kit.fontawesome.com/88509a47d3.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/public/js/ingredientsManager.js" defer ></script>
+    <script type="text/javascript" src="/public/js/searchIngredients.js" defer ></script>
+    <script type="text/javascript" src="/public/js/addCocktail.js" defer ></script>
     <title>My web page</title>
 
 </head>
@@ -21,49 +22,64 @@
         <div class = "left-right-container">
             <li><input type = "file" name = "file"></li>
             <li><img src="/public/img/blue-coctail.jpg" alt="Cocktail image"></li>
-            <li><input  name="amount" type="text" placeholder="amount"></li>
+            <li><input  name="amount" type="text" placeholder="amount" id="amountPicker"></li>
         </div>
 
         <li><input  name="search-bar" type="text" placeholder="ingredient"></li>
         <li>
             <div class = "ingredients-search-container">
+                <?php if (isset($ingredients) && is_array($ingredients)): ?>
 
-                <button class="ingredient-button" id="ingredient-id1" type="button" ">
-                    <img class = "ingredient-image" src="/public/img/rum.jpg" alt="Ikona">
-                    <span class = "ingredient-text" >Tekst na dole</span>
-                </button>
-                <button class="ingredient-button" id="ingredient-id2" type="button" ">
-                    <img class = "ingredient-image" src="/public/img/rum.jpg" alt="Ikona">
-                    <span class = "ingredient-text" >Tekst na dole</span>
-                </button>
-                <button class="ingredient-button" id="ingredient-id3" type="button" >
-                    <img class = "ingredient-image" src="/public/img/rum.jpg" alt="Ikona">
-                    <span class = "ingredient-text" >Tekst na dole</span>
-                </button>
+                        <?php foreach ($ingredients as $ingredient):?>
+                            <button class="ingredient-button" id = "<?= $ingredient->getIdIngredients()?>" type = "button" onclick="addPickedIngredient(this)">
+                                <img class = "ingredient-image" src="/public/ingredientImages/<?= $ingredient->getImage()?>" alt="Ingredient_Image">
+                                <span class = "ingredient-text" ><?= $ingredient->getName()?></span>
+                            </button>
+                        <?php endforeach?>
+
+                <?php endif; ?>
 
             </div>
         </li>
 
         <li>
             <div class = ingredients-picked-container>
-                <button class="ingredient-picked-button" id="ingredient-picked-id" type="button" >Tekst na dole</button>
-                <button class="ingredient-picked-button" id="ingredient-picked-id" type="button" >Tekst na dole</button>
-                <button class="ingredient-picked-button" id="ingredient-picked-id" type="button" >Tekst na dole</button>
-                <button class="ingredient-picked-button" id="ingredient-picked-id" type="button" >Tekst na dole</button>
 
             </div>
         </li>
 
         <li><div class = "left-right-container">
-            <button type = "submit" >Confirm </button>
-            <button type = "submit" >Cancel  </button>
+            <button type = "button" onclick="submitForm()" >Confirm</button>
+            <button type = "button" onclick="submitForm()" >Cancel</button>
         </li></div>
 
     <input type="hidden" id="selectedIngredients" name="selectedIngredients">
-    </form></ul>
+</form></ul>
 </div>
 
 <div class = "bottom-bar"></div>
 
 </body>
+<template id = "cocktail-template">
+    <button class="cocktail-button" id="11">
+        <img class = "cocktail-image" src="/public/uploads/image" alt="Cocktail_Image">
+        <span class = "cocktail-text" >name</span>
+        <i class="fas fa-heart">likeCount</i>
+    </button>
+</template>
+
+<template id = "ingredient-template">
+    <button class="ingredient-template" id="11" type = "button">
+        <img class = "ingredient-image" src="/public/img/rum.jpg" alt="Ingredient_Image">
+        <span class = "ingredient-text" >Name</span>
+    </button>
+</template>
+
+<template id = "ingredient-picked-template">
+    <button class="ingredient-picked-button" id="11" type = "button">
+        <span class = "ingredient-text"> Name </span>
+        <span class = "ingredient-amount"> 80 </span>
+
+    </button>
+</template>
 </html>

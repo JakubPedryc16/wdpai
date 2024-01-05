@@ -5,14 +5,15 @@ require_once 'Repository.php';
 
 class CocktailsIngredientsRepository extends Repository
 {
-    public function addIngredientToCocktail(Ingredient $ingredient, $idCocktail)
+    public function addIngredientToCocktail( $idIngredient, $idCocktail, $amount)
     {
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO public.ingredients_cocktails ("id_ingredients", "id_cocktails")
-            VALUES (?, ?)
+            INSERT INTO public.ingredients_cocktails ("id_ingredients", "id_cocktails", "amount")
+            VALUES (?, ?, ?)
         ');
         $stmt->execute([
-            $ingredient->getIdIngredients(),
-            $idCocktail
+            $idIngredient,
+            $idCocktail,
+            $amount
         ]);    }
 }

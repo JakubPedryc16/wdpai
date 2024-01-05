@@ -15,55 +15,79 @@ class CocktailController extends AppController
     private $messages = [];
     private $cocktailRepository;
     private $cocktailsIngredientsRepository;
-    private $ingredientsRepository;
+    private $ingredientRepository;
     public function __construct() {
         parent::__construct();
         $this->cocktailRepository = new CocktailRepository();
         $this->cocktailsIngredientsRepository = new CocktailsIngredientsRepository();
-        $this->ingredientsRepository = new IngredientRepository();
+        $this->ingredientRepository = new IngredientRepository();
     }
 
     public function searchPage() {
         $cocktails = $this->cocktailRepository->getCocktails();
-        $ingredients = $this->ingredientsRepository->getIngredients();
+        $ingredients = $this->ingredientRepository->getIngredients();
         $this->render('searchPage', ['cocktails' => $cocktails, 'ingredients' => $ingredients]);
     }
     public function addCocktail()
     {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
-        if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
+        if($contentType === "application/json") {
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+
+            header('Content-type: application/json');
+
+            if (isset($decoded['name'], $decoded['image'], $decoded['ingredients'])) {
+                $name = $decoded['name'];
+                $image = $decoded['image'];
+                $ingredients = $decoded['ingredients'];
+
+                $cocktail = new Cocktail($name, $image);
+
+                $idNewCocktail = $this->cocktailRepository->addCocktail($cocktail);
+                foreach ($ingredients as $ingredient) {
+                    $this->cocktailsIngredientsRepository->addIngredientToCocktail(
+                        $ingredient['id'],
+                        $idNewCocktail,
+                        $ingredient['amount']
+                    );
+                }
+                echo '<script>window.location.href = "/searchPage";</script>';
+
+            }
+            else {
+                echo json_encode(['status' => 'error', 'message' => 'Required fields are missing.', 'received_data' => $decoded]);
+                echo json_encode("Fill Everything Mate");
+            }
+        }
+        else {
+            echo json_encode(['status' => 'error', 'message' => 'szasza']);
+            echo json_encode("Fill Everything Mate");
+
+        }
+    }
+    public function upload(){
+
+        header('Content-type: application/json');
+
+        if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])){
             move_uploaded_file(
                 $_FILES['file']['tmp_name'],
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
 
-            $cocktail = new Cocktail($_POST['name'],$_FILES['file']['name']);
-            $this->cocktailRepository->addCocktail($cocktail);
-            // Pobierz ID ostatnio dodanego koktajlu
-            $lastCocktailId = $this->cocktailRepository->getLastInsertedId();
-
-            // Pobierz wybrane składniki z formularza
-            $selectedIngredients = $_POST['selectedIngredients'] ?? [];
-            $decodedIngredients = json_decode($selectedIngredients, true);
-            // Dodaj składniki do koktajlu w Ingredients_Cocktails
-            var_dump($decodedIngredients);
-            foreach ($decodedIngredients as $ingredientId) {
-                die("asddsa");
-                $ingredient = $this->ingredientsRepository->getIngredient($ingredientId);
-                if ($ingredient) {
-                    $this->cocktailsIngredientsRepository->addIngredientToCocktail($ingredient, $lastCocktailId);
-                }
-            }
-
-            header('Location: searchPage');
-            exit;
-
-//             $this->render('searchPage', [
-//                'cocktails' => $this->cocktailRepository->getCocktails(),
-//                ['messages' => $this->messages]
-//            ]);
+            echo json_encode(['messages' => ['success' => 'File uploaded successfully']]);
         }
-        return $this->render('addCocktailPage', ['messages' => $this->messages]);
+        else {
+            echo json_encode(['messages' => ['error' => 'File upload failed']]);
+        }
+
+    }
+    public function addCocktailPage() {
+        $cocktails = $this->cocktailRepository->getCocktails();
+        $ingredients = $this->ingredientRepository->getIngredients();
+        $this->render('addCocktailPage', ['cocktails' => $cocktails, 'ingredients' => $ingredients]);
     }
     public function search(){
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';

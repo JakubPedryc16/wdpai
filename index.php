@@ -9,7 +9,7 @@ Routing::get('', 'DefaultController');
 Routing::get('mainPage', 'DefaultController');
 Routing::get('searchPage', 'CocktailController');
 Routing::get('cocktailPage', 'DefaultController');
-Routing::get('addCocktailPage', 'DefaultController');
+Routing::get('addCocktailPage', 'CocktailController');
 
 Routing::get('like', 'CocktailController');
 
@@ -18,5 +18,6 @@ Routing::post('searchIngredients', 'IngredientController');
 Routing::post('register', 'SecurityController');
 Routing::post('login', 'SecurityController');
 Routing::post('addCocktail', 'CocktailController');
+Routing::post("upload", "CocktailController");
 
 Routing::run($path);

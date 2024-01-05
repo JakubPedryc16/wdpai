@@ -4,11 +4,13 @@ class CocktailsIngredients
 {
     private $idIngredients;
     private $idCocktails;
+    private $amount;
 
-    public function __construct($idIngredients, $idCocktails)
+    public function __construct($idIngredients, $idCocktails, $amount)
     {
         $this->$idIngredients = $idIngredients;
         $this->$idCocktails = $idCocktails;
+        $this->amount = $amount;
     }
 
     public function getIdIngredients()
@@ -28,5 +30,15 @@ class CocktailsIngredients
     public function setIdCocktails($idCocktails)
     {
         $this->idCocktails = $idCocktails;
+    }
+
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    public function setAmount($amount): void
+    {
+        $this->amount = $amount;
     }
 }
