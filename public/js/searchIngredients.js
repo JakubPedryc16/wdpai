@@ -15,7 +15,8 @@ searchIngredients.addEventListener("keyup", function(event) {
                'Content-Type': 'application/json'
            },
            body: JSON.stringify(data)
-       }).then(function (response){
+       })
+           .then(function (response){
            return response.json();
        }).then(function (ingredients){
            ingredientContainer.innerHTML = "";

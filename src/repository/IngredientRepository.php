@@ -65,4 +65,15 @@ class IngredientRepository extends Repository
 
     }
 
+    public function getIngredientById ($searchInt){
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM ingredients WHERE id_ingredients = :search
+        ');
+        $stmt->bindParam(':search', $searchInt, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+
 }

@@ -16,4 +16,14 @@ class CocktailsIngredientsRepository extends Repository
             $idCocktail,
             $amount
         ]);    }
+
+    public function getIngredientIdByCocktailId (int $searchInt){
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM ingredients_cocktails WHERE id_cocktails = :search
+        ');
+        $stmt->bindParam(':search', $searchInt, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 }

@@ -19,5 +19,7 @@ Routing::post('register', 'SecurityController');
 Routing::post('login', 'SecurityController');
 Routing::post('addCocktail', 'CocktailController');
 Routing::post("upload", "CocktailController");
+Routing::post("getIngredients", "IngredientController");
+
 
 Routing::run($path);

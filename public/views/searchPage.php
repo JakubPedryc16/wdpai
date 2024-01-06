@@ -8,7 +8,7 @@
     <meta name="description" content="Information about my website">
     <link rel="stylesheet" type="text/css" href="/public/css/style-searchPage.css"/>
     <script src="https://kit.fontawesome.com/88509a47d3.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/public/js/searchIngredients.js" defer></script>
+    <script type="text/javascript" src="/public/js/searchCocktails.js" defer></script>
     <script type="text/javascript" src="/public/js/statistics.js" defer></script>
     <title>My web page</title>
 
@@ -20,7 +20,7 @@
         <?php if (isset($cocktails) && is_array($cocktails)): ?>
             <section class = "cocktails-container">
                 <?php foreach ($cocktails as $cocktail):?>
-                <button class="cocktail-button" id="<?= $cocktail->getIdCocktails()?>">
+                <button class="cocktail-button" id="<?= $cocktail->getIdCocktails()?>" onclick="loadCocktailIngredients(this)" type = button>
                     <img class = "cocktail-image" src="public/uploads/<?= $cocktail->getImage()?>" alt="Cocktail_Image">
                     <span class = "cocktail-text" ><?= $cocktail->getName()?> </span>
                     <i class="fas fa-heart"><?= $cocktail->getLikeCount(); ?></i>
@@ -65,6 +65,7 @@
     <button class="ingredient-button" id="id">
         <img class = "ingredient-image" src="/public/img/rum.jpg" alt="Ingredient_Image">
         <span class = "ingredient-text" >Name</span>
+        <span class = "ingredient-amount"> 80 </span>
     </button>
 </template>
 
