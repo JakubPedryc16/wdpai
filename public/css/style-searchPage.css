@@ -197,22 +197,27 @@ input:-webkit-autofill {
   }
 .arrow {
     margin: 0;
-    border-radius: 1.5vw;
-    width: 3vw;
-    height: 3vw;
-    background: rgba(0, 0, 0, 0);
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    color: rgba(255, 255, 255 , 0.5);
     border: none;
+    width: 60px;
+    height: 30px;
 }
 
 .return-button{
     position: absolute;
-    top: 2px;
-    left: 2px;
-    font-size: 0.65em;
+    top: 10px;
+    left: 10px;
     margin: 0;
     padding: 7.5px;
+
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter, serif;
+    font-size:  0.75em;
 }
 
 @media only screen and (max-device-width: 450px) {

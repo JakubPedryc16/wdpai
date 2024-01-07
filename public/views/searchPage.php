@@ -10,12 +10,15 @@
     <script src="https://kit.fontawesome.com/88509a47d3.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/searchCocktails.js" defer></script>
     <script type="text/javascript" src="/public/js/statistics.js" defer></script>
+    <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
     <title>My web page</title>
 
 </head>
 <body>
     <div class = "top-bar bar"></div>
     <div class = "container">
+
+        <button class="return-button arrow" type="button" onclick="redirectToPage('/mainPage')">HOME</button>
 
         <?php if (isset($cocktails) && is_array($cocktails)): ?>
             <section class = "cocktails-container">

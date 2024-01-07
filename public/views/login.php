@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+v<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -7,6 +7,8 @@
     <meta name="keywords" content="HTML, CSS">
     <meta name="description" content="Information about my website">
     <link rel="stylesheet" type="text/css" href="/public/css/style-login.css"/>
+    <script type="text/javascript" src="/public/js/statistics.js" defer></script>
+    <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
     <title>My web page</title>
 
 </head>
@@ -29,7 +31,7 @@
                 <input class = "normal-input" name="email" type="text" placeholder="email@email.com" aria-label = "inputEmail">
                 <input class = "normal-input" name="password" type="text" placeholder="password" aria-label = "inputPassword">
                 <button type = "submit" class = "normal-button">Login</button>
-                <button class = "normal-button">Register</button>
+                <button class = "normal-button" onclick="redirectToPage('/register')">Register</button>
             </form>
         </div>
     </div>

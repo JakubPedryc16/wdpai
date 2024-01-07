@@ -10,22 +10,23 @@
     <script src="https://kit.fontawesome.com/88509a47d3.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/searchIngredients.js" defer ></script>
     <script type="text/javascript" src="/public/js/addCocktail.js" defer ></script>
+    <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
     <title>My web page</title>
 
 </head>
 <body>
 <div class = "top-bar"></div>
 <div class = "container">
+    <button class="return-button arrow"  type="button" onclick="redirectToPage('/mainPage')">HOME</button>
     <ul><form id = "myFrom"  action = "addCocktail" method="POST" ENCTYPE="multipart/form-data">
 
         <li><input  name="name" type="text" placeholder="name"></li>
         <div class = "left-right-container">
             <li><input type = "file" name = "file"></li>
-            <li><img src="/public/img/blue-coctail.jpg" alt="Cocktail image"></li>
             <li><input  name="amount" type="text" placeholder="amount" id="amountPicker"></li>
         </div>
 
-        <li><input  name="search-bar" type="text" placeholder="ingredient"></li>
+    <li><input class = "search-input" name="search-bar" type="text" placeholder="ingredient" aria-label = "inputIngredient"></li>
         <li>
             <div class = "ingredients-search-container">
                 <?php if (isset($ingredients) && is_array($ingredients)): ?>
@@ -69,7 +70,7 @@
 </template>
 
 <template id = "ingredient-template">
-    <button class="ingredient-template" id="11" type = "button">
+    <button class="ingredient-button" id="11" type = "button">
         <img class = "ingredient-image" src="/public/img/rum.jpg" alt="Ingredient_Image">
         <span class = "ingredient-text" >Name</span>
     </button>

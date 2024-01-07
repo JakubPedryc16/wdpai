@@ -7,6 +7,7 @@
     <meta name="keywords" content="HTML, CSS">
     <meta name="description" content="Information about my website">
     <link rel="stylesheet" type="text/css" href="/public/css/style-mainPage.css"/>
+    <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
     <title>My web page</title>
 
 </head>
@@ -18,10 +19,10 @@
         </div>
         <div class = "login-container">
             <form>
-                <button class = "normal-button">Search</button>
+                <button class = "normal-button"  type="button" onclick="redirectToPage('/searchPage')">Search</button>
                 <div class = "vertical-buttons">
-                    <button class = "square-button">Logout</button>
-                    <button class = "square-button">Add Coctail</button>
+                    <button class = "square-button" type="button">Logout</button>
+                    <button class = "square-button" type="button" onclick="redirectToPage('/addCocktailPage')">Add Coctail</button>
                 </div>
             </form>
         </div>
