@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML, CSS">
+
     <meta name="description" content="Information about my website">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="/public/css/style-mainPage.css"/>
+
     <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
     <title>My web page</title>
 

@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML, CSS">
     <meta name="description" content="Information about my website">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/css/style-specialised.css"/>
     <link rel="stylesheet" type="text/css" href="/public/css/style-searchPage.css"/>
-    <script src="https://kit.fontawesome.com/88509a47d3.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/searchCocktails.js" defer></script>
     <script type="text/javascript" src="/public/js/statistics.js" defer></script>
     <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
@@ -31,7 +32,6 @@
 
             </section>
         <?php endif; ?>
-
 
         <div class = "ingredients-container">
             <div class = "search-bar-container">

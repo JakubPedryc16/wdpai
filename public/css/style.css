@@ -1,52 +1,120 @@
 body {
     margin: 0
 }
-* { 
+* {
     box-sizing: border-box;
     color: #ffffff;
     font-family: Inter;
     font-size: 1vw;
-    cursor: auto
-
-  }
+    cursor: auto;
+}
 img {
     object-fit: cover;
-  }
+}
 .container {
-    flex-grow: 1;
-    caret-color: transparent;
     width: 100vw;
     height: 100vh;
-    background: #2A2F3C;
+    background: rgb(30, 30, 35);
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: auto;
+
+    caret-color: transparent;
 }
 .logo {
-    width: 50%;
-    width: 25vw;
-    margin: 5vw;
+    width: 80%;
+}
+
+.logo-container{
+    width: 40%;
+    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    caret-color: transparent;
+    margin-left: 10vw;
 }
 
 .login-container {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
     caret-color: transparent;
-    width: 50%;
-    text-align: center;
+    margin-right: 10vw;
 }
-
+.messages {
+    font-size: 1.5vw;
+    color: rgba(255, 255, 255, 0.75);
+}
 form {
-    caret-color: transparent;
+    border-radius: 30px;
+    padding:  2.5vw;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    caret-color: transparent;
+    background: rgba(0, 0, 0, 0.125);
+}
+
+.normal-input {
     width: 80%;
+    border-radius: 2vw;
+    background: rgba(0, 0, 0, 0.125);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
+    inset, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    caret-color: transparent;
+    border: none;
+
+    margin: 1vw;
+    padding: 1vw;
+
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter, serif;
+    color: #FFF;
+    text-align: center;
+    font-size: 1vw;
+
+}
+input:focus {
+    caret-color: rgba(30, 100, 100, 0.75);
+    outline: 0.2vw solid rgba(30, 100, 100, 0.75);
+}
+input:focus::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgba(20, 20, 22, 1) inset; /* Background color */
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.75) !important; /* Text color */
+}
+.no-valid{
+    border: 0.2vw solid red;
+    box-shadow: 0 0 0.2vw red;
+}
+.normal-button {
+    width: 80%;
+    border-radius: 30px;
+    background: rgba(30, 100, 100, 0.75);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
+    inset, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    caret-color: transparent;
+    border: none;
+    margin: 1vw;
+    padding: 1vw;
+
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter, serif;
+    color: #FFF;
+    text-align: center;
+    font-size: 1vw;
+    transition: background 0.3s ease;
 }
 .vertical-buttons{
     display: flex;
@@ -55,336 +123,100 @@ form {
     align-items: center;
     width: 80%;
 }
-
-.normal-input {
-    border-radius: 30px;
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
-    inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-    width: 80%;
-    border: none;
-    margin: 3vh;
-    padding: 1.5vh;
-    line-height: 3vw;
-    color: #FFF;
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
-    font-size: 2.5vw;
-}
-
-.normal-button {
-    border-radius: 30px;
-    background: rgba(99, 255, 227, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
-     inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-
-    width: 80%;
-    border: none;
-    margin: 3vh;
-    padding: 1.5vh;
-    line-height: 3vw;
-    color: #FFF;
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
-    font-size: 2.5vw;
-}
 .square-button {
     border-radius: 30px;
-    background: rgba(99, 255, 227, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
-     inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: rgba(30, 100, 100, 0.75);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
+    inset, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 
     height: 8vw;
-    width: 80%;
+    width: 100%;
     border: none;
-    margin: 0.5vw;
-    margin-top: 2vw;
+    margin: 0.5vw ;
     padding-top: 1vw;
     padding-bottom: 1vw;
-    line-height: 3vw;
+
     color: #FFF;
     text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter, serif;
-    font-size: 3vw;
+    font-size: 1.5vw;
+}
+button:hover {
+    transform: scale(1.05);
+    background: rgba(30, 100, 100, 1);
+}
+button:active {
+    transform: scale(0.95);
+    background: rgba(30, 100, 100, 0.5);
 }
 
-.top-bar {
+.bar {
     caret-color: transparent;
-    height: 50px; 
+    height: 50px;
     position: fixed;
+}
+.top-bar {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(99, 255, 227, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    background: rgba(30, 100, 100, 0.75);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
     backdrop-filter: blur(2px);
 }
 
 .bottom-bar {
-    caret-color: transparent;
-    height: 50px; 
-    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
-.coctail-container{
-    caret-color: transparent;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    
-    margin: 0 auto;
-    width: 45%;
-    height: 75%;
-}
 
-.ingredients-container{
-    caret-color: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    margin: 0 auto;
-
-    width: 50%;
-    height: 50%;
-}
-.coctail-row{
-    caret-color: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-}
-
-.search-bar-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-}
-.ingredients-search-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    margin: 2vw;
-}
-
-.ingredients-picked-container {
-    caret-color: transparent;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.coctail-button {
-    caret-color: transparent;
-    border-radius: 20px;
-    background: rgba(99, 255, 227, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    border: none;
-    margin: 1vw;
-    width: 15vw;
-    height: 20vw;
-}
-
-.ingredient-button{
-    caret-color: transparent;
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    border: none;
-    width: 10vw;
-    height: 14vw;
-    margin: 1vw;
-}
-
-.ingredient-picked-button{
-    caret-color: transparent;   
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    border: none;
-    margin: 1vw;
-    width: 5vw;
-    height: 5vw;
-    object-fit: cover;
-}
-
-.coctail-image{
-    border-radius: 30px;
-    width: 10vw;
-    height: 14vw;
-    object-fit: cover;
-    margin: 1vw;
-}
-
-.ingredient-image{
-    border-radius: 30px;
-    width: 6vw;
-    height: 8vw;
-    object-fit: cover;
-    margin: 1vw;
-}
-.span{
-    text-align: center;
-    margin: auto;
-}
-
-.search-input {
-    border-radius: 30px;
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
-     inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-     width: 80%;
-     border: none;
-     margin: 1vw ;
-     padding: 1.5vh;
-     line-height: 3vw;
-     color: #FFF;
-     text-align: center;
-     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-     font-family: Inter;
-     font-size: 2.5vw;
-}
-
-.fa-solid{
-    font-size: 3em;
-  }
-  .arrow {
-    padding: 0.75vw;
-    margin: 0vw;
-    border-radius: 20px;
-    background: rgba(99, 255, 227, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border: none;
-}
-
-  .return-button{
-    position: absolute;
-    top: 2px; 
-    left: 2px; 
-    font-size: 0.65em;
-    margin: 0;
-    padding: 7.5px;
-}
-
-@media only screen and (max-device-width: 550px) {
-    .container{
+@media only screen and (max-device-width: 450px) {
+    .container {
         flex-direction: column;
     }
-    .normal-button, input {
-        line-height: 1.5em;
-        font-size: 1.5em;
-        margin: 0.5em;
-    }
-    .square-button{
-        line-height: 1em;
-        font-size: 1.5em;
-        margin: 0.5em;
-        height: 4em;
+
+    .normal-button, .normal-input {
+        padding: 2.5vw;
+        font-size: 2.5vw;
+        margin: 2.5vw;
     }
 
-    .login-container{
+    .login-container {
         width: 100%;
         height: 40%;
-        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: start;
+        margin: 0;
     }
 
-    .logo{
-        width: 100%;
-        height: 40%;
+    .logo-container{
+        width: 50%;
+        height: 30%;
+        margin-left: 0;
+        justify-content: center;
     }
 
-    form{
-        margin: 0 auto;
-        width: 80%;
-        height:  100%;
+    form {
+        margin: 5vw auto;
+        width: 70%;
+        height: 100%;
+        justify-content: start;
+        align-items: center;
     }
 
-    img {
-        width: 50vw;
+    .logo {
+        width: 75%;
         margin: 5vw;
     }
-
-    .coctail-container {
-        height: 40%;
-        width: 60%;
+    .messages {
+        font-size: 3vw;
+        margin-top: 3vw;
+        margin-bottom: 1vw;
     }
-    .ingredients-container {
-        height: 50%;
-        width: 100%;
-    }
-    .coctail-button {
-        margin: 0.5vw;
-        width: 22.5vw;
-        height: 30vw;
-    }
-    
-    .ingredient-button{
-        width: 15vw;
-        height: 21vw;
-        margin: 0.5vw;
-    }
-    
-    .ingredient-picked-button{
-        margin: 0.5vw;
-        width: 7.5vw;
-        height: 7.5vw;
-    }
-    
-    .coctail-image{
-        width: 15vw;
-        height: 21vw;
-        margin: 0.5vw;
-    }
-    
-    .ingredient-image{
-        width: 9vw;
-        height: 12vw;
-        margin: 0.5vw;
-    }
-    .span{
-        font-size: 1.5em;
-    }
-    
-    .search-input {
-        margin: 0.5vw;
-        line-height: 4.5vw;
-        font-size: 1.5em;
-    }
-
-    .ingredients-search-container{
-        width: 100%;
-    }
-    
-    .fa-solid{
-    }
-
-    .arrow {
-
-    }
-        
-    .return-button{
-
-    }
-
 }

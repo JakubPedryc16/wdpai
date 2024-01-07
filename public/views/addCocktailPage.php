@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML, CSS">
     <meta name="description" content="Information about my website">
-    <link rel="stylesheet" type="text/css" href="/public/css/style-addCoctailPage.css"/>
-    <script src="https://kit.fontawesome.com/88509a47d3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/css/style-specialised.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/css/style-addCocktailPage.css"/>
     <script type="text/javascript" src="/public/js/searchIngredients.js" defer ></script>
     <script type="text/javascript" src="/public/js/addCocktail.js" defer ></script>
     <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
@@ -15,7 +16,8 @@
 
 </head>
 <body>
-<div class = "top-bar"></div>
+<div class = "top-bar bar"></div>
+<div class = "bottom-bar bar"></div>
 <div class = "container">
     <button class="return-button arrow"  type="button" onclick="redirectToPage('/mainPage')">HOME</button>
     <ul><form id = "myFrom"  action = "addCocktail" method="POST" ENCTYPE="multipart/form-data">
@@ -57,8 +59,6 @@
     <input type="hidden" id="selectedIngredients" name="selectedIngredients">
 </form></ul>
 </div>
-
-<div class = "bottom-bar"></div>
 
 </body>
 <template id = "cocktail-template">

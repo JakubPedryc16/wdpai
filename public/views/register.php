@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <link rel="stylesheet" type="text/css" href="/public/css/style-register.css">
     <script type="text/javascript" src="/public/js/script.js" defer ></script>
     <title>REGISTER</title>
 </head>
 
 <body>
+<div class = "top-bar bar"></div>
+<div class = "bottom-bar bar"></div>
 <div class="container">
     <div class="logo-container">
         <img class = "logo" src="/public/img/logo.svg">
