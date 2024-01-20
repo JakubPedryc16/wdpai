@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML, CSS">
@@ -9,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/style.css"/>
     <script type="text/javascript" src="/public/js/statistics.js" defer></script>
     <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
+    <script type="text/javascript" src="/public/js/login.js" defer></script>
     <title>My web page</title>
 
 </head>
@@ -32,7 +32,7 @@
                 <input class = "normal-input" name="email" type="text" placeholder="email@email.com" aria-label = "inputEmail">
                 <input class = "normal-input" name="password" type="text" placeholder="password" aria-label = "inputPassword">
                 <button type = "submit" class = "normal-button">Login</button>
-                <button class = "normal-button" onclick="redirectToPage('/register')">Register</button>
+                <button class = "normal-button" type="button" onclick="redirectToPage('/register')">Register</button>
             </form>
         </div>
     </div>

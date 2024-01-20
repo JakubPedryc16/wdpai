@@ -96,4 +96,34 @@ class CocktailRepository extends Repository
         return $result['last_id'] ?? null;
     }
 
+    public function deleteCocktail(int $idCocktail): bool
+    {
+        $pdo = $this->database->connect();
+
+        try {
+            $pdo->beginTransaction();
+
+            $stmtIngredients = $pdo->prepare('DELETE FROM public.ingredients_cocktails WHERE id_cocktails = :id_cocktail');
+            $stmtIngredients->bindParam(':id_cocktail', $idCocktail, PDO::PARAM_INT);
+            $stmtIngredients->execute();
+
+            $stmtCocktail = $pdo->prepare('DELETE FROM public.cocktails WHERE id_cocktails = :id_cocktail');
+            $stmtCocktail->bindParam(':id_cocktail', $idCocktail, PDO::PARAM_INT);
+            $stmtCocktail->execute();
+
+            $pdo->commit();
+
+            // Zwracamy informację o powodzeniu operacji
+            return true;
+        } catch (PDOException $e) {
+            $pdo->rollBack();
+
+            // W przypadku błędu, możemy zwrócić informację o niepowodzeniu operacji
+            return false;
+        }
+    }
+
+
+
+
 }

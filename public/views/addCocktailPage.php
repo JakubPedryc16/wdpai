@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="/public/css/style-specialised.css"/>
     <link rel="stylesheet" type="text/css" href="/public/css/style-addCocktailPage.css"/>
+    <script type="text/javascript" src="/public/js/session.js" ></script>
     <script type="text/javascript" src="/public/js/searchIngredients.js" defer ></script>
     <script type="text/javascript" src="/public/js/addCocktail.js" defer ></script>
     <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
@@ -16,6 +17,7 @@
 
 </head>
 <body>
+<script>checkId()</script>
 <div class = "top-bar bar"></div>
 <div class = "bottom-bar bar"></div>
 <div class = "container">

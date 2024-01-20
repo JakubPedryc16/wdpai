@@ -1,7 +1,5 @@
 <?php
 
-namespace models;
-
 class User
 {
  private $email;
@@ -9,12 +7,19 @@ class User
  private $name;
  private $surname;
 
-    public function __construct(string $email, string $password, string $name, string $surname)
+ private $salt;
+private $idUsers;
+private $role;
+
+    public function __construct(string $email, string $password, string $name, string $surname, string $salt, int $idUsers = null, string $role = null)
     {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
         $this->surname = $surname;
+        $this->salt = $salt;
+        $this->idUsers = $idUsers;
+        $this->role = $role;
     }
 
     public function getEmail(): string
@@ -55,6 +60,36 @@ class User
     public function setSurname(string $surname)
     {
         $this->surname = $surname;
+    }
+
+    public function getIdUsers(): int
+    {
+        return $this->idUsers;
+    }
+
+    public function setIdUsers(int $idUsers): void
+    {
+        $this->idUsers = $idUsers;
+    }
+
+    public function getSalt(): string
+    {
+        return $this->salt;
+    }
+
+    public function setSalt(string $salt): void
+    {
+        $this->salt = $salt;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(?string $role): void
+    {
+        $this->role = $role;
     }
 
 

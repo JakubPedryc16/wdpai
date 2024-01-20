@@ -1,3 +1,4 @@
+
 function redirectToPage(newPageString) {
 
     if (typeof newPageString === 'string') {
@@ -7,3 +8,10 @@ function redirectToPage(newPageString) {
         alert("newPageString is not of string type")
     }
 }
+window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+        if(!sessionStorage.getItem('idUser')){
+            redirectToPage('/');
+        }
+    }
+});

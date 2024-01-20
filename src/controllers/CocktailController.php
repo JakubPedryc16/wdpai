@@ -28,6 +28,11 @@ class CocktailController extends AppController
         $ingredients = $this->ingredientRepository->getIngredients();
         $this->render('searchPage', ['cocktails' => $cocktails, 'ingredients' => $ingredients]);
     }
+    public function manageCocktailsPage() {
+        $cocktails = $this->cocktailRepository->getCocktails();
+        $ingredients = $this->ingredientRepository->getIngredients();
+        $this->render('manageCocktailsPage', ['cocktails' => $cocktails, 'ingredients' => $ingredients]);
+    }
     public function addCocktail()
     {
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
@@ -122,5 +127,23 @@ class CocktailController extends AppController
         $this->cocktailRepository->like($cocktails_id);
         http_response_code(200);
     }
+    public function deleteCocktail()
+    {
+        $content = trim(file_get_contents("php://input"));
+        $decoded = json_decode($content, true);
+
+        if (isset($decoded['cocktailId'])) {
+            $cocktailId = $decoded['cocktailId'];
+            $success = $this->cocktailRepository->deleteCocktail($cocktailId);
+
+            header('Content-type: application/json');
+            echo json_encode(['success' => $success]);
+        } else {
+            header('Content-type: application/json');
+            echo json_encode(['success' => false, 'error' => 'Brak identyfikatora koktajlu.']);
+        }
+    }
+
+
 
 }

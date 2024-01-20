@@ -30,7 +30,6 @@
             <input class = "normal-input" name="confirmedPassword" type="password" placeholder="confirm password">
             <input class = "normal-input" name="name" type="text" placeholder="name">
             <input class = "normal-input" name="surname" type="text" placeholder="surname">
-            <input class = "normal-input" name="phone" type="text" placeholder="phone">
             <button class = "normal-button" type="submit">REGISTER</button>
         </form>
     </div>
