@@ -1,6 +1,6 @@
 
 
-const searchCocktails = document.querySelector('input[placeholder="ingredient"]')
+const searchCocktails = document.querySelector('input[placeholder="cocktail_name"]')
 const cocktailContainer = document.querySelector('section')
 const ingredientContainer = document.querySelector('.ingredients-search-container')
 searchCocktails.addEventListener("keyup", function(event) {
@@ -28,7 +28,7 @@ searchCocktails.addEventListener("keyup", function(event) {
 
 function loadCocktails(cocktails) {
     cocktails.forEach(cocktail => {
-        console.log(cocktail);
+        //console.log(cocktail);
         createCocktail(cocktail);
     })
 }
@@ -44,19 +44,15 @@ function createCocktail(cocktail) {
     const name = clone.querySelector("span");
     name.innerHTML = cocktail.name;
 
-    const like = clone.querySelector(".fa-heart");
-
-    like.innerText = cocktail.likeCount;
-
     const button = clone.querySelector(".cocktail-button");
 
-    button.id = cocktail.id;
+    button.id = cocktail.id_cocktails;
     cocktailContainer.appendChild(clone);
 }
 
-function loadCocktailIngredients(button){
+function loadCocktailIngredients(buttonId){
 
-    const data = {search: button.id}
+    const data = {search: buttonId}
 
     fetch("/getIngredients", {
         method: "POST",
@@ -73,7 +69,7 @@ function loadCocktailIngredients(button){
     })
         .then(function (ingredients){
             ingredientContainer.innerHTML = "";
-            console.log(ingredients);  // Log the data to the console
+            //console.log(ingredients);
             loadIngredients(ingredients)
     });
 
@@ -83,7 +79,7 @@ function loadCocktailIngredients(button){
 
 function loadIngredients(ingredients) {
     ingredients.forEach(ingredient => {
-        console.log(ingredient);
+        //console.log(ingredient);
         createIngredient(ingredient);
     })
 }
@@ -108,4 +104,15 @@ function createIngredient(ingredient) {
     amount.innerHTML = ingredient.amount;
 
     ingredientContainer.appendChild(clone);
+}
+function addIngredientsShowing() {
+
+    var cocktailButtons = document.querySelectorAll('.cocktail-button');
+    cocktailButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var cocktailId = parseInt(button.id);
+            //console.log(cocktailId);
+            loadCocktailIngredients(cocktailId);
+        });
+    });
 }

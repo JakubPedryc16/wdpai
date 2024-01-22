@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="/public/css/style-searchPage.css"/>
     <script type="text/javascript" src="/public/js/session.js"></script>
     <script type="text/javascript" src="/public/js/searchCocktails.js" defer></script>
-    <script type="text/javascript" src="/public/js/statistics.js" defer></script>
     <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
     <title>My web page</title>
 
@@ -27,10 +26,9 @@
         <?php if (isset($cocktails) && is_array($cocktails)): ?>
             <section class = "cocktails-container">
                 <?php foreach ($cocktails as $cocktail):?>
-                <button class="cocktail-button" id="<?= $cocktail->getIdCocktails()?>" onclick="loadCocktailIngredients(this)" type = button>
+                <button class="cocktail-button" id="<?= $cocktail->getIdCocktails()?>" onclick="loadCocktailIngredients(<?= $cocktail->getIdCocktails()?>)" type = button>
                     <img class = "cocktail-image" src="public/uploads/<?= $cocktail->getImage()?>" alt="Cocktail_Image">
                     <span class = "cocktail-text" ><?= $cocktail->getName()?> </span>
-                    <i class="fas fa-heart"><?= $cocktail->getLikeCount(); ?></i>
                 <?php endforeach?>
 
             </section>
@@ -38,7 +36,7 @@
 
         <div class = "ingredients-container">
             <div class = "search-bar-container">
-                <input class = "search-input" name="search-bar" type="text" placeholder="ingredient" aria-label = "inputIngredient">
+                <input class = "search-input" name="search-bar" type="text" placeholder="cocktail_name" aria-label = "inputIngredient" onkeyup="addIngredientsShowing()">
             </div>
 
             <?php if (isset($ingredients) && is_array($ingredients)): ?>
@@ -63,7 +61,6 @@
     <button class="cocktail-button" id="id">
         <img class = "cocktail-image" src="/public/uploads/image" alt="Cocktail_Image">
         <span class = "cocktail-text" >name</span>
-        <i class="fas fa-heart">likeCount</i>
     </button>
 </template>
 

@@ -123,10 +123,6 @@ class CocktailController extends AppController
         return true;
     }
 
-    public function like(int $cocktails_id) {
-        $this->cocktailRepository->like($cocktails_id);
-        http_response_code(200);
-    }
     public function deleteCocktail()
     {
         $content = trim(file_get_contents("php://input"));

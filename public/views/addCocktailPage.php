@@ -67,7 +67,6 @@
     <button class="cocktail-button" id="11">
         <img class = "cocktail-image" src="/public/uploads/image" alt="Cocktail_Image">
         <span class = "cocktail-text" >name</span>
-        <i class="fas fa-heart">likeCount</i>
     </button>
 </template>
 

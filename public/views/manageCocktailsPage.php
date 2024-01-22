@@ -11,9 +11,8 @@
     <link rel="stylesheet" type="text/css" href="/public/css/style-searchPage.css"/>
     <script type="text/javascript" src="/public/js/session.js"></script>
     <script type="text/javascript" src="/public/js/searchCocktails.js" defer></script>
-    <script type="text/javascript" src="/public/js/statistics.js" defer></script>
     <script type="text/javascript" src="/public/js/pageNavigator.js" defer></script>
-    <script type="text/javascript" src="/public/js/roleManager.js"></script>
+    <script type="text/javascript" src="/public/js/roleManager.js" defer></script>
     <title>My web page</title>
 
 </head>
@@ -31,29 +30,16 @@
             <button class="cocktail-button" id="<?= $cocktail->getIdCocktails()?>" onclick="deleteCocktail(<?=$cocktail->getIdCocktails()?>)" type = button>
                 <img class = "cocktail-image" src="public/uploads/<?= $cocktail->getImage()?>" alt="Cocktail_Image">
                 <span class = "cocktail-text" ><?= $cocktail->getName()?> </span>
-                <i class="fas fa-heart"><?= $cocktail->getLikeCount(); ?></i>
                 <?php endforeach?>
 
         </section>
     <?php endif; ?>
 
     <div class = "ingredients-container">
+        <div></div>
         <div class = "search-bar-container">
-            <input class = "search-input" name="search-bar" type="text" placeholder="ingredient" aria-label = "inputIngredient">
+            <input class = "search-input" name="search-bar" type="text" placeholder="cocktail_name" aria-label = "inputIngredient" onkeyup="addDeletion()">
         </div>
-
-        <?php if (isset($ingredients) && is_array($ingredients)): ?>
-
-            <div class = "ingredients-search-container">
-                <?php foreach ($ingredients as $ingredient):?>
-                    <button class="ingredient-button" id = "<?= $ingredient->getIdIngredients()?>">
-                        <img class = "ingredient-image" src="/public/ingredientImages/<?= $ingredient->getImage()?>" alt="Ingredient_Image">
-                        <span class = "ingredient-text" ><?= $ingredient->getName()?></span>
-                    </button>
-                <?php endforeach?>
-            </div>
-        <?php endif; ?>
-        <div class = ingredients-picked-container></div>
     </div>
 </div>
 
@@ -64,7 +50,6 @@
     <button class="cocktail-button" id="id">
         <img class = "cocktail-image" src="/public/uploads/image" alt="Cocktail_Image">
         <span class = "cocktail-text" >name</span>
-        <i class="fas fa-heart">likeCount</i>
     </button>
 </template>
 

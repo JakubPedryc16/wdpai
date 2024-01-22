@@ -42,6 +42,18 @@ function deleteCocktail(cocktailId) {
     }
 }
 
+function addDeletion() {
+    var cocktailButtons = document.querySelectorAll('.cocktail-button');
+
+    cocktailButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var cocktailId = button.id;
+            deleteCocktail(cocktailId);
+        });
+    });
+}
+
+
 
 
 

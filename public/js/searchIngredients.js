@@ -1,6 +1,6 @@
 
 
-const searchIngredients = document.querySelector('input[placeholder="ingredient"]')
+const searchIngredients = document.querySelector('input[placeholder="cocktail_name"]')
 const ingredientContainer = document.querySelector('.ingredients-search-container')
 
 searchIngredients.addEventListener("keyup", function(event) {
@@ -30,7 +30,7 @@ searchIngredients.addEventListener("keyup", function(event) {
 
 function loadCocktails(ingredients) {
     ingredients.forEach(ingredient => {
-        console.log(ingredient);
+        //console.log(ingredient);
         createIngredient(ingredient);
     })
 

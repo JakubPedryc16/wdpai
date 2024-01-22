@@ -12,9 +12,6 @@ Routing::get('cocktailPage', 'DefaultController');
 Routing::get('addCocktailPage', 'CocktailController');
 Routing::get('manageCocktailsPage', 'CocktailController');
 
-
-Routing::get('like', 'CocktailController');
-
 Routing::post('search', 'CocktailController');
 Routing::post('searchIngredients', 'IngredientController');
 Routing::post('register', 'SecurityController');

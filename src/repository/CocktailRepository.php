@@ -19,7 +19,7 @@ class CocktailRepository extends Repository
         return new Cocktail(
             $cocktail['name'],
             $cocktail['image'],
-            $cocktail['likeCount'],
+            $cocktail['image'],
             $cocktail['id_cocktails']
         );
     }
@@ -59,12 +59,32 @@ class CocktailRepository extends Repository
             $result[] = new Cocktail(
                 $cocktail['name'],
                 $cocktail['image'],
-                $cocktail['likeCount'],
                 $cocktail['id_cocktails']
             );
         }
         return $result;
     }
+    public function getCocktailsWithIngredients(): array
+    {
+        $result = [];
+        $stmt = $this->database->connect()->prepare('
+        SELECT * FROM cocktails_with_ingredients
+    ');
+        $stmt->execute();
+        $cocktails = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($cocktails as $cocktail) {
+            $result[] = [
+                'name' => $cocktail['name'],
+                'image' => $cocktail['image'],
+                'id_cocktails' => $cocktail['id_cocktails'],
+                'ingredient_name' => $cocktail['ingredient_name'],
+                'ingredient_amount' => $cocktail['amount']
+            ];
+        }
+        return $result;
+    }
+
 
     public function getCocktailByName(string $searchString){
         $searchString = '%'.strtolower($searchString).'%';
@@ -75,14 +95,6 @@ class CocktailRepository extends Repository
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    }
-    public function like(int $id_cocktails) {
-        $stmt = $this->database->connect()->prepare('
-            UPDATE cocktails SET "like_count" = "like_count" + 1 WHERE id_cocktails = :id_cocktails
-        ');
-
-        $stmt->bindParam(':id_cocktails', $id_cocktails, PDO::PARAM_INT);
-        $stmt->execute();
     }
     public function getLastInsertedId(): ?int
     {
