@@ -32,6 +32,7 @@ function deleteCocktail(cocktailId) {
             .then(data => {
                 if (data.success) {
                     alert('Koktajl został pomyślnie usunięty!');
+                    location.reload();
                 } else {
                     alert('Błąd podczas usuwania koktajlu.');
                 }
@@ -40,6 +41,7 @@ function deleteCocktail(cocktailId) {
                 console.error('Wystąpił błąd:', error);
             });
     }
+
 }
 
 function addDeletion() {

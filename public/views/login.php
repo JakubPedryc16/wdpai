@@ -30,7 +30,7 @@
                     ?>
                 </div>
                 <input class = "normal-input" name="email" type="text" placeholder="email@email.com" aria-label = "inputEmail">
-                <input class = "normal-input" name="password" type="text" placeholder="password" aria-label = "inputPassword">
+                <input class = "normal-input" name="password" type="password"  placeholder="password" aria-label = "inputPassword">
                 <button type = "submit" class = "normal-button">Login</button>
                 <button class = "normal-button" type="button" onclick="redirectToPage('/register')">Register</button>
             </form>

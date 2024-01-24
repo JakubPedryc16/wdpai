@@ -85,7 +85,7 @@
 
 .ingredient-image{
     width: 6vw;
-    height: 8vw;
+    height: 6vw;
 }
 span{
     font-size: 1.5vw;
@@ -115,31 +115,27 @@ span{
     .container{
         flex-direction: column;
     }
-    .cocktail-container {
-        height: 35%;
-        width: 80%;
-        margin-top: 10%;
-        margin-left: 0;
-        justify-content: center;
+    .cocktails-container {
+        height: 50%;
+        width: 100%;
     }
     .ingredients-container {
-        height: 35%;
-        width: 100%;
+        height: 50%;
+        width: 80%;
         margin-bottom: 10%;
         margin-right: 0;
         justify-content: center;
     }
     .cocktail-button {
-        margin: 0.5vw;
-        margin-top: 2vw;
-        width: 22.5vw;
-        height: 30vw;
+        margin: 2vw 0.5vw 0.5vw;
+        width: 16vw;
+        height: 22vw;
         font-size: 3vw;
     }
     
     .ingredient-button{
-        width: 18vw;
-        height: 22vw;
+        width: 10vw;
+        height: 14vw;
         margin: 2vw;
 
     }
@@ -153,14 +149,14 @@ span{
     }
     
     .cocktail-image{
-        width: 16vw;
-        height: 22vw;
+        width: 12vw;
+        height: 16vw;
         margin: 1vw;
     }
     
     .ingredient-image{
-        width: 10vw;
-        height: 14vw;
+        width: 8vw;
+        height: 8vw;
         margin: 1vw;
     }
     span{
@@ -170,7 +166,7 @@ span{
         margin: 0.5vw;
         line-height: 4.5vw;
         font-size: 1.5em;
-        width: 100%;
+        width: 90%;
     }
 
     .ingredients-search-container{
@@ -184,8 +180,8 @@ span{
         font-size: 2vw;
     }
     .search-bar-container{
-        width: 50%;
-        font-size: 3vw;
+        width: 100%;
+        font-size: 2vw;
         align-items: center;
     }
 
@@ -199,7 +195,7 @@ span{
     }
         
     .return-button{
-
+        font-size: 2vw;
     }
 
 }

@@ -1,6 +1,6 @@
 
 
-const searchIngredients = document.querySelector('input[placeholder="cocktail_name"]')
+const searchIngredients = document.querySelector('input[placeholder="ingredient"]')
 const ingredientContainer = document.querySelector('.ingredients-search-container')
 
 searchIngredients.addEventListener("keyup", function(event) {
@@ -49,6 +49,12 @@ function createIngredient(ingredient) {
 
     const button = clone.querySelector(".ingredient-button");
 
-    button.id = ingredient.id;
+    button.id = ingredient.id_ingredients;
+
+    button.addEventListener('click', function (){
+        addPickedIngredient(this);
+    });
     ingredientContainer.appendChild(clone);
 }
+
+

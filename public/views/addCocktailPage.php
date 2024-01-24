@@ -55,7 +55,7 @@
 
         <li><div class = "left-right-container">
             <button type = "button" onclick="submitForm()" >Confirm</button>
-            <button type = "button" onclick="submitForm()" >Cancel</button>
+            <button type = "button" onclick="redirectToPage('/addCocktailPage')" >Cancel</button>
         </li></div>
 
     <input type="hidden" id="selectedIngredients" name="selectedIngredients">

@@ -125,12 +125,10 @@ class CocktailRepository extends Repository
 
             $pdo->commit();
 
-            // Zwracamy informację o powodzeniu operacji
             return true;
         } catch (PDOException $e) {
             $pdo->rollBack();
 
-            // W przypadku błędu, możemy zwrócić informację o niepowodzeniu operacji
             return false;
         }
     }
